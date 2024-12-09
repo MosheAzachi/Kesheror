@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get("/api/auth");
       setUsers(response.data.users);
     } catch (error) {
-      console.error("Error fetching users:", error.message);
+      //console.error("Error fetching users:", error.message);
     }
   };
 
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     if (user) return;
     try {
       setLoading(true);
-      const response = await axios.get("/api/auth/me");
+      //const response = await axios.get("/api/auth/me");
       setUser(response.data.user);
     } catch (error) {
       console.error("Failed to load user:", error);
