@@ -1,0 +1,36 @@
+.page-container {
+  @apply flex flex-col w-[80%] m-auto gap-6;
+}
+
+.menu a {
+  @apply block py-4 px-7 text-white cursor-pointer;
+}
+
+.menu a.active {
+  @apply bg-[#b15656];
+}
+
+.menu a:hover {
+  @apply text-black bg-[#DDDDDD];
+}
+
+.image img:hover {
+  @apply hover:scale-105 transition-transform duration-200;
+}
+
+.page-container input,
+.page-container textarea {
+  @apply w-full p-3 mb-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-[#8B0000];
+}
+
+.page-container label {
+  @apply block mb-2 font-bold;
+}
+
+.primary {
+  @apply bg-gray-300 text-black hover:bg-[#cecece] transition;
+}
+
+.secondary {
+  @apply bg-[#8B0000] text-white hover:bg-[#A50000] transition;
+}
