@@ -26,4 +26,8 @@ app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/contact", contactRouter);
 
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 module.exports = app;
