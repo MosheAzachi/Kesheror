@@ -12,7 +12,10 @@ const contactRouter = require("./routes/contactRoute");
 
 const app = express();
 
-app.use(cors({ credentials: true }));
+app.use({
+  origin: allowedOrigins,
+  credentials: true,
+});
 app.use(express.json());
 app.use(cookieParser());
 
