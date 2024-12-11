@@ -38,3 +38,20 @@
 - **MongoDB**: NoSQL database for scalable data storage.
 - **JWT Authentication**: Secure user authentication and role management.
 - **Mongoose**: ODM for MongoDB to define schemas and interact with the database.
+
+---
+
+## Project Structure
+
+### Backend:
+
+- `api/models`: Mongoose models for User, Product, Order, and Contact.
+- `api/controllers`: Business logic for routes.
+- `api/routes`: API endpoints for authentication, products, orders, and contacts.
+- `api/server.js`: Entry point for the backend.
+
+### Frontend:
+
+- `client/src/components`: Reusable React components (e.g., Cart, Product, Orders).
+- `client/src/context`: Context API for managing global state (e.g., AuthContext, CartContext).
+- `client/src/pages`: Page components for routing.
