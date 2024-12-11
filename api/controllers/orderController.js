@@ -36,15 +36,14 @@ exports.createOrder = async (req, res) => {
 
 exports.getAllOrders = async (req, res) => {
   try {
-    // Fetch all orders and populate product details
     const orders = await Order.find()
       .populate({
         path: "items.product",
-        select: "id name price", // Select only the required fields from Product
+        select: "id name price",
       })
       .populate({
         path: "user",
-        select: "name address", // Optionally include user details
+        select: "name address",
       });
 
     if (!orders || orders.length === 0) {

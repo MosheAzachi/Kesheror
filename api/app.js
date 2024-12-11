@@ -12,23 +12,7 @@ const contactRouter = require("./routes/contactRoute");
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173", // Frontend in local development
-  "https://kesheror-front.vercel.app", // Frontend in production
-];
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true); // Allow the origin
-      } else {
-        callback(new Error("Not allowed by CORS")); // Reject the request
-      }
-    },
-    credentials: true, // Allow credentials (cookies, authorization headers)
-  })
-);
+app.use(cors({ origin: process.env.ORIGIN, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
