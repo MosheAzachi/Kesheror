@@ -130,7 +130,11 @@ exports.setAdmin = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try {
     const id = req.params.id;
-    const user = await User.findByIdAndDelete(id);
+    const user = await User.findById(id);
+    if (user.role === "admin") {
+      return res.status(403).json({ message: "לא ניתן למחוק משתמש עם תפקיד מנהל" });
+    }
+    await User.findByIdAndDelete(id);
     res.status(200).json({
       message: "המשתמש נמחק בהצלחה",
     });

@@ -6,15 +6,16 @@ import { useOrder } from "../context/OrderContext"; // Assuming you have an Orde
 import { useNotification } from "../context/NotificationContext";
 
 function CheckoutPage() {
+  const { user } = useAuth();
   const { cart, totalPrice, clearCart, cartLength } = useCart();
   const navigate = useNavigate();
   const { createOrder } = useOrder();
   const { showNotification } = useNotification();
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
-
+  console.log(user);
   // State for form fields
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullName: user.name,
     phoneNumber: "",
     address: "",
   });
@@ -88,20 +89,15 @@ function CheckoutPage() {
         {/* User Details */}
         <div className="shadow-md rounded p-4 bg-gray-100">
           <h2 className="text-lg font-bold">פרטי משלוח</h2>
-          <form className="grid gap-4 mt-4">
-            <input
-              name="fullName"
-              type="text"
-              placeholder="שם מלא"
-              className="w-full p-2 border rounded"
-              value={formData.fullName}
-              onChange={handleChange}
-            />
+          <form className="grid p-2 gap-2 mt-4">
+            <p>
+              <strong>שם מלא:</strong> {user.name}
+            </p>
             <input
               name="phoneNumber"
               type="tel"
               placeholder="מספר טלפון"
-              className="w-full p-2 border rounded text-right"
+              className="w-full border rounded text-right"
               value={formData.phoneNumber}
               onChange={handleChange}
             />
@@ -109,7 +105,7 @@ function CheckoutPage() {
               name="address"
               type="text"
               placeholder="כתובת"
-              className="w-full p-2 border rounded"
+              className="w-full border rounded"
               value={formData.address}
               onChange={handleChange}
             />

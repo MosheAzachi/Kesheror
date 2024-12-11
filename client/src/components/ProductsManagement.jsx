@@ -69,7 +69,7 @@ function ProductManagement() {
             ➕ הוסף מוצר חדש
           </button>
         </div>
-        <div className="overflow-x-auto shadow-md max-h-96 overflow-y-auto">
+        <div className="overflow-auto shadow-md max-h-96">
           <table className="w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
